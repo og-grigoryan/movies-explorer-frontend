@@ -1,0 +1,15 @@
+.SearchForm__form {
+  display: flex;
+  align-items: center;
+  min-height: 72px;
+  border-radius: 9px;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 680px) {
+  .SearchForm__form {
+    flex-wrap: wrap;
+    background-color: transparent;
+  }
+}

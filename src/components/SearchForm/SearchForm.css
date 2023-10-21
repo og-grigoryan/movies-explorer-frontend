@@ -1,0 +1,19 @@
+.SearchForm {
+  margin: 0 70px 10px;
+  padding: 70px 0 69px;
+  border-bottom: 1px solid rgba(66, 66, 66, 1);
+}
+
+@media screen and (max-width: 1024px) {
+  .SearchForm {
+    margin: 0 30px;
+    padding: 80px 0px 109px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .SearchForm {
+    margin: 0 10px;
+    padding: 80px 0px 35px;
+  }
+}

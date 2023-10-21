@@ -1,0 +1,13 @@
+.Register__title {
+  margin: 0;
+  color:rgba(255, 255, 255, 1);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.20;
+}
+
+@media screen and (max-width: 680px) {
+  .Register__title {
+    text-align: center;
+  }
+}

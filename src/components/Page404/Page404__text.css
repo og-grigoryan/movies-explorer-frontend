@@ -1,0 +1,21 @@
+.Page404__text {
+  margin: 246px 0 0;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+  font-size: 140px;
+  line-height: 1.2;
+}
+
+@media screen and (max-width: 1024px) {
+  .Page404__text {
+    margin: 408px 0 0;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .Page404__text {
+    margin: 329px 0 0;
+    font-size: 80px;
+    line-height: 1.21;
+  }
+}

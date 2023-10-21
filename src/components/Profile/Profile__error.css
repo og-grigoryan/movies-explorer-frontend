@@ -1,0 +1,10 @@
+.Profile__error {
+  display: none;
+  text-align: center;
+  min-height: 14px;
+  margin: 189px 0 0;
+  color:rgba(238, 52, 101, 1);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.28;
+}

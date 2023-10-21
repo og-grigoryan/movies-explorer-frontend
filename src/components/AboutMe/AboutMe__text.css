@@ -1,0 +1,23 @@
+.AboutMe__text {
+  margin: 26px 0 0;
+  color:rgba(255, 255, 255, 1);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.57;
+}
+
+@media screen and (max-width: 1024px) {
+  .AboutMe__text {
+    margin: 20px 0 0;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}
+
+
+@media screen and (max-width: 680px) {
+  .AboutMe__text {
+    font-size: 11px;
+    line-height: 1.45;
+  }
+}

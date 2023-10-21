@@ -1,0 +1,17 @@
+.Portfolio__element {
+  margin-bottom: 22px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid rgba(66, 66, 66, 1);
+}
+
+.Portfolio__element:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+@media screen and (max-width: 680px) {
+  .Portfolio__element {
+    padding-bottom: 19px;
+  }
+}

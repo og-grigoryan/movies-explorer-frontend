@@ -1,0 +1,13 @@
+.Footer__list-item {
+  margin: 0 20px 0 0;
+}
+
+.Footer__list-item:last-child {
+  margin: 0;
+}
+
+@media screen and (max-width: 680px) {
+  .Footer__list-item {
+    margin: 0 0 6px 0;
+  }
+}

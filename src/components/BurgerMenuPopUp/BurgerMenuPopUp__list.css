@@ -1,0 +1,14 @@
+.BurgerMenuPopUp__list {
+  margin: 159px 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+}
+
+@media screen and (max-width: 680px) {
+  .BurgerMenuPopUp__list {
+    margin: 144px 0 0 0;
+  }
+}

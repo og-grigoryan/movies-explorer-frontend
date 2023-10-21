@@ -1,0 +1,27 @@
+.NavigationSite__account-button {
+  position: absolute;
+  width: 100px;
+  height: 32px;
+  border: none;
+  border-radius: 20px;
+  padding: 0;
+  background-color: rgba(49, 49, 49, 1);
+  color: #fff;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14px;
+  transition: opacity 0.5s;
+  right: 0;
+}
+
+.NavigationSite__account-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 840px) {
+  .NavigationSite__account-button {
+    display: none;
+  }
+}

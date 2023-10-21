@@ -1,0 +1,15 @@
+.Footer__info-container {
+  margin: 20px 0 0 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 680px) {
+  .Footer__info-container {
+    margin: 0;
+		flex-direction: column-reverse;
+    justify-content: center;
+  }
+}

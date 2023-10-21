@@ -1,0 +1,26 @@
+.Techs__text {
+  max-width: 460px;
+  margin: 26px auto 0;
+  text-align: center;
+  color:rgba(255, 255, 255, 1);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: -0.04em;
+}
+
+@media screen and (max-width: 1024px) {
+  .Techs__text {
+    margin: 22px auto 0;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .Techs__text {
+    margin: 24px auto 0;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+}

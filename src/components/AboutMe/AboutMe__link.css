@@ -1,0 +1,28 @@
+.AboutMe__link {
+  display: inline-block;
+  margin: 79px 0 0;
+  color:rgba(255, 255, 255, 1);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+  text-decoration: none;
+  transition: opacity 0.5s;
+}
+
+.AboutMe__link:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+  .AboutMe__link {
+    margin: 65px 0 0;
+  }
+}
+
+
+@media screen and (max-width: 680px) {
+  .AboutMe__link {
+    margin: 40px 0 0;
+  }
+}

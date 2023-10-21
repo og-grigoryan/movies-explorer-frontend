@@ -1,0 +1,9 @@
+.Register__form {
+  margin: 40px 0 0;
+}
+
+@media screen and (max-width: 680px) {
+  .Register__form {
+    margin: 80px 0 0;
+  }
+}

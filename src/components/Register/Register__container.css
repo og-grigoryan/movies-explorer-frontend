@@ -1,0 +1,14 @@
+.Register__container {
+  width: 396px;
+  margin: 40px auto 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 680px) {
+  .Register__container {
+    margin: 50px auto 0;
+    width: 260px;
+    padding: 0 30px;
+  }
+}

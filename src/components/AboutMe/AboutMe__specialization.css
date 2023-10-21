@@ -1,0 +1,21 @@
+.AboutMe__specialization {
+  margin: 18px 0 0;
+  color:rgba(255, 255, 255, 1);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.11;
+}
+
+@media screen and (max-width: 1024px) {
+  .AboutMe__specialization {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .AboutMe__specialization {
+    font-size: 11px;
+    line-height: 1.45;
+  }
+}

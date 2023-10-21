@@ -1,0 +1,9 @@
+.Register__error {
+  min-height: 12px;
+  margin: 0 0 10px 0;
+  color:rgba(238, 52, 101, 1);
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.20;
+}
+

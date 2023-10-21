@@ -1,0 +1,8 @@
+.Login__input-container {
+  min-height: 156px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+}

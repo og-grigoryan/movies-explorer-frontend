@@ -1,0 +1,25 @@
+.Profile__input {
+  display: inline-block;
+  height: 14px;
+  margin: 0;
+  padding: 0;
+  width: 80%;
+  box-sizing: border-box;
+  background-color: transparent;
+  text-align: right;
+  color: #fff;
+  border: 0;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.18;
+}
+
+.Profile__input:focus {
+  outline: 0;
+  border-bottom: 1px solid rgba(66, 133, 244, 1);
+}
+
+
+
+

@@ -1,0 +1,16 @@
+.Footer__copyrights-container {
+  margin-left: 70px;
+}
+
+@media screen and (max-width: 1024px) {
+  .Footer__copyrights-container {
+    margin-left: 30px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .Footer__copyrights-container {
+    margin-top: 30px;
+    margin-left: 0;
+  }
+}

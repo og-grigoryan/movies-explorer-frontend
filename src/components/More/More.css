@@ -1,0 +1,16 @@
+.More {
+  margin: 0 70px;
+  text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .More {
+    margin: 0 30px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .More {
+    margin: 0 10px;
+  }
+}

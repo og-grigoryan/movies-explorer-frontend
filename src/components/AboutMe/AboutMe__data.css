@@ -1,0 +1,9 @@
+.AboutMe__data {
+  max-width: 660px;
+}
+
+@media screen and (max-width: 1024px) {
+  .AboutMe__data {
+    max-width: 364px;
+  }
+}

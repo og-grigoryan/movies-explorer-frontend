@@ -1,0 +1,36 @@
+.SearchForm__input-movie {
+  margin: 0;
+  min-width: calc(100% - 55px);
+  padding-left: 20px;
+  height: 50px;
+  box-sizing: border-box;
+  background-color: transparent;
+  color: #fff;
+  border: 0;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.11;
+  background-color: rgba(47, 47, 47, 1);
+  border-radius: 8px;
+}
+
+.SearchForm__input-movie:focus {
+  outline: 0;
+  border-bottom: 1px solid rgba(66, 133, 244, 1);
+}
+
+@media screen and (max-width: 680px) {
+  .SearchForm__input-movie {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .SearchForm__input-movie {
+    padding-left: 13px;
+    width: 180px;
+    font-size: 14px;
+    line-height: 1.43;
+  }
+}

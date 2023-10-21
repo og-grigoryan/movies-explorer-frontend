@@ -1,0 +1,22 @@
+.Login__link {
+  display: inline-block;
+  margin-left: 6px;
+  color:rgba(66, 133, 244, 1);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+  text-decoration: none;
+  transition: opacity 0.5s;
+}
+
+.Login__link:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 680px) {
+  .Login__link {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+}

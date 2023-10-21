@@ -1,0 +1,18 @@
+.Profile__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 123px 0 220px;
+}
+
+@media screen and (max-width: 1024px) {
+  .Profile__form {
+    margin: 96px 0 210px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .Profile__form {
+    margin: 80px 0 379px;
+  }
+}

@@ -1,0 +1,22 @@
+.Footer__link {
+  display: inline-block;
+  color:rgba(255, 255, 255, 1);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.23;
+  text-decoration: none;
+  transition: opacity 0.5s;
+}
+
+.Footer__link:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 680px) {
+  .Footer__link {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+}
+

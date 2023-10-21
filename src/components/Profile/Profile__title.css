@@ -1,0 +1,8 @@
+.Profile__title {
+  margin: 0;
+  align-self: center;
+  color:rgba(255, 255, 255, 1);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.20;
+}

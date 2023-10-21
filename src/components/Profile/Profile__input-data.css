@@ -1,0 +1,12 @@
+.Profile__input-data {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 0 0 16px;
+ border-bottom: 1px solid rgba(66, 66, 66, 1);
+}
+
+.Profile__input-data:last-child {
+  padding: 16px 0 0;
+  border-bottom: none;
+}

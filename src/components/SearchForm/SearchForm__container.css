@@ -1,0 +1,12 @@
+.SearchForm__container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 680px) {
+  .SearchForm__container {
+    min-height: 44px;
+    border-radius: 8px;
+  }
+}

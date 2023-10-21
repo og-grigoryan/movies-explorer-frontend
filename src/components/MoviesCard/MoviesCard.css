@@ -1,0 +1,19 @@
+.MoviesCard {
+  margin: 0 auto;
+  position: relative;
+  max-width: 364px;
+  width: 100%;
+  background-color: rgba(34, 34, 34, 1);
+}
+
+@media screen and (max-width: 1279px) {
+  .MoviesCard {
+    width: 100%;;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .MoviesCard {
+    width: 100%;
+  }
+}

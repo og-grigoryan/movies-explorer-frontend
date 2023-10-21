@@ -1,0 +1,19 @@
+.SearchForm__label-shortFilms {
+  margin: 0 14px 0 29px;
+  width: 36px; 
+  height: 20px; 
+  display: block;
+  position: relative; 
+}
+
+@media screen and (max-width: 1024px) {
+  .SearchForm__label-shortFilms {
+    margin: 0 14px 0 19px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .SearchForm__label-shortFilms {
+    margin: 0 14px 0 0;
+  }
+}

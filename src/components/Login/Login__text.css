@@ -1,0 +1,16 @@
+.Login__text {
+  margin: 16px 0 0 0;
+  color:rgba(139, 139, 139, 1);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+  align-self: center;
+}
+
+@media screen and (max-width: 680px) {
+  .Login__text {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+}
+

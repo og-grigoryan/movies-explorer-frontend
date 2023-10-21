@@ -1,0 +1,25 @@
+.Page404__button {
+  margin: 184px 0 0;
+  padding: 0;
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  color:rgba(66, 133, 244, 1);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+  transition: opacity 0.5s;
+}
+
+.Page404__button:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 680px) {
+  .Page404__button {
+    margin: 284px 0 30px;
+    font-size: 12px;
+    line-height: 1.25;
+  }
+}

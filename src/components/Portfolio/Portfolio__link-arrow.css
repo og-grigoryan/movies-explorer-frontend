@@ -1,0 +1,19 @@
+.Portfolio__link-arrow {
+  width: 29px;
+  height: 60px;
+  object-fit: scale-down;
+}
+
+@media screen and (max-width: 1024px) {
+  .Portfolio__link-arrow {
+    width: 27px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .Portfolio__link-arrow {
+    margin-right: 5px;
+    width: 10px;
+    height: 28px;
+  }
+}

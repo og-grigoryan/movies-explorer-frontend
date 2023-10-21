@@ -1,0 +1,16 @@
+.Techs {
+  padding: 100px 70px;
+  background: rgba(39, 39, 39, 1);
+}
+
+@media screen and (max-width: 1024px) {
+  .Techs {
+    padding: 90px 50px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .Techs {
+    padding: 70px 18px 59px;
+  }
+}

@@ -1,0 +1,22 @@
+.Techs__table {
+  margin: 100px 0 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .Techs__table {
+    margin: 83px 0 0;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .Techs__table {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 50px auto 0;
+    max-width: 178px;
+  }
+}

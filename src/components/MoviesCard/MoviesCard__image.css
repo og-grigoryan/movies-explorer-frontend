@@ -1,0 +1,9 @@
+.MoviesCard__image{
+  position: relative;
+  display: block;
+  margin: 0 auto 0;
+  max-height: 203px;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}

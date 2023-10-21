@@ -1,0 +1,18 @@
+.AboutProject__grafikTable-title {
+  margin: 0;
+  padding: 9px 0;
+  vertical-align: middle;
+  background: rgba(48, 48, 48, 1);
+  color:rgba(255, 255, 255, 1);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+}
+
+@media screen and (max-width: 740px) {
+  .AboutProject__grafikTable-title {
+    padding: 11px 0;
+    font-size: 11px;
+    line-height: 1.18;
+  }
+}

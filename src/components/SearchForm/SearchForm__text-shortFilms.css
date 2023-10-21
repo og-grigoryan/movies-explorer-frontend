@@ -1,0 +1,14 @@
+.SearchForm__text-shortFilms {
+  color: #fff;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.38;
+}
+
+@media screen and (max-width: 480px) {
+  .SearchForm__text-shortFilms {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.64;
+  }
+}

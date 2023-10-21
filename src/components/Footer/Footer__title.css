@@ -1,0 +1,29 @@
+.Footer__title {
+  margin: 79px 70px 0;
+  color:rgba(139, 139, 139, 1);
+  text-align: center;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.23;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(66, 66, 66, 1);
+}
+
+@media screen and (max-width: 680px) {
+  .Footer__title {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .Footer__title {
+    margin: 79px 30px 0;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .Footer__title {
+    margin: 79px 10px 0;
+  }
+}

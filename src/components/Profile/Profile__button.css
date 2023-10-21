@@ -1,0 +1,23 @@
+.Profile__button {
+  margin: 0 0 16px 0;
+  text-align: center;
+  align-self: center;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  color:rgba(255, 255, 255, 1);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.23;
+  text-decoration: none;
+  transition: opacity 0.5s;
+}
+
+
+.Profile__button:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.Profile__button:last-child{
+  margin: 0;
+}

@@ -1,0 +1,13 @@
+.MoviesCard__title {
+  margin: 0;
+  color: #fff;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+@media screen and (max-width: 680px) {
+  .MoviesCard__title {
+    font-size: 12px;
+  }
+}

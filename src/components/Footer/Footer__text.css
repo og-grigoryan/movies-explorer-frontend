@@ -1,0 +1,15 @@
+.Footer__text {
+  margin: 0;
+  color:rgba(255, 255, 255, 1);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.23;
+}
+
+@media screen and (max-width: 680px) {
+  .Footer__text {
+    font-size: 12px;
+    line-height: 1.25;
+    color: rgba(139, 139, 139, 1);
+  }
+}

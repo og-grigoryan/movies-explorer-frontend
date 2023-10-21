@@ -1,0 +1,13 @@
+.NavigationSite__link {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.38;
+  transition: opacity 0.5s;
+}
+
+.NavigationSite__link:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}

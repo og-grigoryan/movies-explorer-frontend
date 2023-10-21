@@ -1,0 +1,25 @@
+.Login__input {
+  margin: 10px 0 6px 0;
+  padding: 0 0 0 15px;
+  width: 100%;
+  height: 46px;
+  box-sizing: border-box;
+  background-color: transparent;
+  color: #fff;
+  border: 0;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.21;
+  background: rgba(47, 47, 47, 1);
+  border-radius: 8px;
+}
+
+.Login__input:focus {
+  outline: 0;
+  border-bottom: 1px solid rgba(66, 133, 244, 1);
+}
+
+
+
+

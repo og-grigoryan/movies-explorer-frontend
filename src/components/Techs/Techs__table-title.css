@@ -1,0 +1,16 @@
+.Techs__table-title {
+  margin: 0;
+  padding-top: 21px;
+  color:rgba(255, 255, 255, 1);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+  letter-spacing: -0.04em;
+}
+
+@media screen and (max-width: 680px) {
+  .Techs__table-title {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+}

@@ -1,0 +1,24 @@
+.MoviesCardList__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 24px;
+  row-gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 1279px) {
+  .MoviesCardList__list {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 36px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .MoviesCardList__list {
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+  }
+}

@@ -1,0 +1,27 @@
+.BurgerMenuPopUp__button-close {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  background-image: url("../../images/closeIcon.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  transition: opacity 0.5s;
+}
+
+.BurgerMenuPopUp__button-close:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 680px) {
+  .BurgerMenuPopUp__button-close {
+    top: 13px;
+    right: 13px;
+  }
+}

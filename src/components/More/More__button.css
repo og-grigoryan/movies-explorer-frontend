@@ -1,0 +1,27 @@
+.More__button {
+  box-sizing: border-box;
+  width: 320px;
+  height: 36px;
+  margin: 50px auto 80px;
+  padding: 0;
+  text-align: center;
+  background: transparent;
+  border: 1px solid rgba(66, 66, 66, 1);
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  transition: opacity 0.5s;
+}
+
+.More__button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 680px) {
+  .More__button {
+    width: 240px;
+  }
+}

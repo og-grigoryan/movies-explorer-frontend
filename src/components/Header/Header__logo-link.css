@@ -1,0 +1,8 @@
+.Header__logo-link {
+  transition: opacity 0.5s;
+}
+
+.Header__logo-link:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}

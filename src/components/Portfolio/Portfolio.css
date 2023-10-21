@@ -1,0 +1,14 @@
+.Portfolio {
+  margin: 100px 0 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .Portfolio {
+    margin: 91px 0 0;
+  }
+}
+@media screen and (max-width: 680px) {
+  .Portfolio {
+    margin: 70px 0 0;
+  }
+}

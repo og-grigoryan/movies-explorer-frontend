@@ -1,0 +1,21 @@
+.Footer__list {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0 70px 0 0;
+  list-style: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .Footer__list {
+    margin-right: 30px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .Footer__list {
+    flex-direction: column;
+    margin-top: 30px;
+    margin-right: 0;
+  }
+}

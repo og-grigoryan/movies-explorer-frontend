@@ -1,0 +1,14 @@
+.Portfolio__title {
+  margin: 0;
+  color:rgba(139, 139, 139, 1);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.11;
+}
+
+@media screen and (max-width: 680px) {
+  .Portfolio__title {
+    font-size: 14px;
+    line-height: 1.43;
+  }
+}

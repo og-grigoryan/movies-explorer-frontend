@@ -1,0 +1,29 @@
+.Techs__table-cell {
+  width: 90px;
+  height: 60px;
+  margin-right: 10px;
+  background: rgba(48, 48, 48, 1);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.Techs__table-cell:last-child {
+  margin-right: 0px;
+}
+
+@media screen and (max-width: 1024px) {
+  .Techs__table-cell {
+    width: 84px;
+    height: 57px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .Techs__table-cell {
+    margin: 0 10px 10px 0;
+  }
+
+  .Techs__table-cell:nth-child(2n) {
+    margin: 0 0 10px 0;
+  }
+}

@@ -1,0 +1,13 @@
+.NavigationSite__list-item {
+  margin: 0 16px 0 0;
+}
+
+.NavigationSite__list-item:last-child{
+  margin: 0;
+}
+
+@media screen and (max-width: 840px) {
+  .NavigationSite__list-item {
+    display: none;
+  }
+}

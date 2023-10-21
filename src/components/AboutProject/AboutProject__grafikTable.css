@@ -1,0 +1,18 @@
+.AboutProject__grafikTable {
+  margin: 110px 0 0;
+  padding: 0;
+  display: flex;
+  list-style-type: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .AboutProject__grafikTable {
+    margin: 93px 0 0;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .AboutProject__grafikTable {
+    margin: 60px 0 0;
+  }
+}

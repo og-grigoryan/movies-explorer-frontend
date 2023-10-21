@@ -1,0 +1,17 @@
+.BurgerMenuPopUp__menu {
+  margin: 0 0 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 66%;
+  max-width: 520px;
+  height: 100%;
+  background: rgba(32, 32, 32, 1);
+}
+
+@media screen and (max-width: 480px) {
+  .BurgerMenuPopUp__menu {
+    width: 100%;
+  }
+}

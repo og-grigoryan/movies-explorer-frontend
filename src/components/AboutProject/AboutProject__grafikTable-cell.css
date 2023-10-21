@@ -1,0 +1,21 @@
+.AboutProject__grafikTable-cell {
+  text-align: center;
+}
+
+.AboutProject__grafikTable-cell:nth-child(1) {
+  flex: 1;
+}
+
+.AboutProject__grafikTable-cell:nth-child(2) {
+  flex: 4;
+}
+
+@media screen and (max-width: 740px) {
+  .AboutProject__grafikTable-cell:nth-child(1) {
+    flex: 1;
+  }
+
+  .AboutProject__grafikTable-cell:nth-child(2) {
+    flex: 2;
+  }
+}

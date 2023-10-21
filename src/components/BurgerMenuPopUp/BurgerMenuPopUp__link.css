@@ -1,0 +1,14 @@
+.BurgerMenuPopUp__link {
+  padding-bottom: 5px;
+  color: #fff;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.22;
+  text-decoration: none;
+  transition: opacity 0.5s;
+}
+
+.BurgerMenuPopUp__link:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}

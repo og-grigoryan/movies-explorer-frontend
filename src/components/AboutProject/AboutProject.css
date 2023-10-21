@@ -1,0 +1,18 @@
+.AboutProject {
+  margin: 0 70px;
+  padding: 110px 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .AboutProject {
+    margin: 0 50px;
+    padding: 90px 0;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .AboutProject {
+    margin: 0 18px;
+    padding: 70px 0;
+  }
+}
