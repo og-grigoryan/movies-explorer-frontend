@@ -1,3 +1,3 @@
 # movies-explorer-frontend
 
-Макет проекта: dark-2
+Выбранный макет - dark-2
