@@ -4,4 +4,4 @@
 
 Ссылка на веб часть проекта:https://movie.grig.nomoredomainsrocks.ru
 
-Ссылка на pull request:
+Ссылка на pull request:https://github.com/og-grigoryan/movies-explorer-frontend/pull/2
