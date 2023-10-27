@@ -1,5 +1,4 @@
 import React from 'react';
-import searchIcon from "../../images/saerchIcon.svg";
 
 import './SearchForm.css';
 import './SearchForm__form.css';
