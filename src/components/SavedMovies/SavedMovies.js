@@ -4,10 +4,10 @@ import Header from '../Header/Header';
 import NavigationSite from '../NavigationSite/NavigationSite.js';
 import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
 import SearchForm from '../SearchForm/SearchForm.js';
-import More from '../More/More.js';
 import Footer from '../Footer/Footer';
 
-function SavedMovies({ onBurgerMenu }) {
+function SavedMovies({ onBurgerMenu, allMovies, onSaveButtonClick, onSearchFormSubmitButtonClick, moviesSearchQuery, checkboxStatus }) {
+
   return (
     <>
       <Header
@@ -18,9 +18,17 @@ function SavedMovies({ onBurgerMenu }) {
       />
       <main className='content'>
         <section className="SavedMovies">
-          <SearchForm />
-          <MoviesCardList />
-          <More />
+          <SearchForm
+            onSearchFormSubmitButtonClick={onSearchFormSubmitButtonClick}
+            moviesSearchQuery={moviesSearchQuery}
+            checkboxStatus={checkboxStatus}
+          />
+          <MoviesCardList
+            allMovies={allMovies}
+            onSaveButtonClick={onSaveButtonClick}
+            moviesSearchQuery={moviesSearchQuery}
+            checkboxStatus={checkboxStatus}
+          />
         </section>
       </main>
       <Footer />

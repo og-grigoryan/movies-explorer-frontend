@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 
 import './NavigationSite.css'
 import './NavigationSite__list.css'
@@ -28,14 +28,21 @@ function NavigationSite({ onBurgerMenu }) {
     navigate("/profile", { replace: true });
   }
 
+
   return (
     <nav className="NavigationSite">
       <ul className="NavigationSite__list">
         <li className="NavigationSite__list-item">
-          <a className={`NavigationSite__link ${isPageMoviesOpen ? "NavigationSite__link_active" : ""}`} href="/movies">Фильмы</a>
+          <Link
+            className={`NavigationSite__link ${isPageMoviesOpen ? "NavigationSite__link_active" : ""}`}
+            to="/movies"
+          >Фильмы</Link>
         </li>
         <li className="NavigationSite__list-item">
-          <a className={`NavigationSite__link ${isPageSavedMoviesOpen ? "NavigationSite__link_active" : ""}`} href="/saved-movies">Сохранённые фильмы</a>
+          <Link
+            className={`NavigationSite__link ${isPageSavedMoviesOpen ? "NavigationSite__link_active" : ""}`}
+            to="/saved-movies"
+          >Сохранённые фильмы</Link>
         </li>
       </ul>
       <button type="button" className="NavigationSite__account-button" onClick={onClickProfileButton}>Аккаунт</button>

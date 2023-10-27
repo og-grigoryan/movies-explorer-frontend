@@ -1,0 +1,29 @@
+.SuccessUpdateProfilePopUp__button-close {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    background-image: url("../../images/closeIcon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    transition: opacity 0.5s;
+  }
+  
+  .SuccessUpdateProfilePopUp__button-close:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }
+  
+  @media screen and (max-width: 680px) {
+    .SuccessUpdateProfilePopUp__button-close {
+      top: -32px;
+      right: 0;
+      width: 20px;
+      height: 20px;
+    }
+  }
