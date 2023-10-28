@@ -56,7 +56,7 @@ function App() {
     checkToken();
   }, []);
 
-  React.componentDidMount()(() => {
+  React.useEffect(() => {
     if (allMovies.length === 0) {
         handleSearchFormSubmitButtonClick('', checkboxStatus);
     }
