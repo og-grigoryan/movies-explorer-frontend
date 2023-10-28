@@ -109,8 +109,6 @@ function App() {
           setMaxCountMoviesElementsUpdate(maxCountMoviesElementsUpdate + (2 - (maxCountMoviesElementsUpdate % 2)));
         }
       }
-      // if (NewScreenWidth < 767) {
-      // }
     }, 1000)
   });
 
@@ -330,7 +328,7 @@ function App() {
       setMaxCountMoviesElementsUpdate(maxCountMoviesElementsUpdate + 2);
     }
     if (screenWidth < 767) {
-      setMaxCountMoviesElementsUpdate(maxCountMoviesElementsUpdate + 5);
+      setMaxCountMoviesElementsUpdate(maxCountMoviesElementsUpdate + 2);
     }
   }
 
