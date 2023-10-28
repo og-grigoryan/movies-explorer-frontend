@@ -128,7 +128,6 @@ function App() {
             setLoggedIn(true);
             //setUserData(res);
             // checkLocalStorage();
-            // getSavedMovies();
             //navigate("/movies", { replace: true });
           }
         })
@@ -237,23 +236,6 @@ function App() {
   }
 
   // MOVIES
-  const getSavedMovies = () => {
-    const token = `Bearer ${localStorage.getItem('jwt')}`;
-    setIsMovieLoading(true);
-    // получаем сохраненные фильмы из БД
-    mainApi.getMovie(token)
-      .then((savedMovies) => {
-        setSavedMovies(savedMovies);
-        setSavedSortedMovies(savedMovies);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        setIsMovieLoading(false);
-      });
-  }
-
   // создаём список отсортированных фильмов и записываем его в localStorage
   const makeSortedMoviesArray = (allMovies, searchFormMovie, checkboxStatus) => {
     const sortedMoviesArray = [];
@@ -385,7 +367,6 @@ function App() {
         // console.log(res);
       })
       .then(() => {
-        // getSavedMovies();
         const updateSavedMovies = savedMovies.filter(c => c.nameRU !== movies.nameRU);
         setSavedMovies(updateSavedMovies);
         // setSavedSortedMovies(updateSavedMovies);
