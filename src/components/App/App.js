@@ -82,7 +82,7 @@ function App() {
     if (screenWidth >= 1280) {
       setMaxCountMoviesElementsUpdate(12);
     }
-    if (screenWidth < 1280) {
+    if (screenWidth < 1280 && screenWidth >= 767) {
       setMaxCountMoviesElementsUpdate(8);
     }
     if (screenWidth < 767) {
@@ -105,13 +105,6 @@ function App() {
       if (NewScreenWidth < 1280 && NewScreenWidth >= 767) {
         if (maxCountMoviesElementsUpdate < 8) {
           setMaxCountMoviesElementsUpdate(8);
-        } else {
-          setMaxCountMoviesElementsUpdate(maxCountMoviesElementsUpdate + (2 - (maxCountMoviesElementsUpdate % 2)));
-        }
-      }
-      if (NewScreenWidth < 767) {
-        if (maxCountMoviesElementsUpdate < 5) {
-          setMaxCountMoviesElementsUpdate(5);
         } else {
           setMaxCountMoviesElementsUpdate(maxCountMoviesElementsUpdate + (2 - (maxCountMoviesElementsUpdate % 2)));
         }
@@ -332,9 +325,6 @@ function App() {
       setMaxCountMoviesElementsUpdate(maxCountMoviesElementsUpdate + 3);
     }
     if (screenWidth < 1280) {
-      setMaxCountMoviesElementsUpdate(maxCountMoviesElementsUpdate + 2);
-    }
-    if (screenWidth < 767) {
       setMaxCountMoviesElementsUpdate(maxCountMoviesElementsUpdate + 2);
     }
   }
