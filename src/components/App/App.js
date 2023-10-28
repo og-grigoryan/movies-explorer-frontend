@@ -56,6 +56,12 @@ function App() {
     checkToken();
   }, []);
 
+  React.componentDidMount()(() => {
+    if (allMovies.length === 0) {
+        handleSearchFormSubmitButtonClick('', checkboxStatus);
+    }
+  });
+
   React.useEffect(() => {
     if (loggedIn) {
       const token = `Bearer ${localStorage.getItem('jwt')}`;
