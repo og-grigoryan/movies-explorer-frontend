@@ -324,7 +324,10 @@ function App() {
     if (screenWidth >= 1280) {
       setMaxCountMoviesElementsUpdate(maxCountMoviesElementsUpdate + 3);
     }
-    if (screenWidth < 1280) {
+    if (screenWidth < 1280 && screenWidth >= 767) {
+      setMaxCountMoviesElementsUpdate(maxCountMoviesElementsUpdate + 2);
+    }
+    if (screenWidth < 767) {
       setMaxCountMoviesElementsUpdate(maxCountMoviesElementsUpdate + 2);
     }
   }
