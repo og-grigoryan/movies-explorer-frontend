@@ -34,8 +34,10 @@ function MoviesCardList({
         <ul className="MoviesCardList__list">
           {moviesElements.slice(0, maxCountMoviesElements)}
         </ul>
-      ) : (
+      ) : allMovies.length ? (
         <p className="MoviesCardList__messageNotFound">«Ничего не найдено»</p>
+      ) : (
+        <Preloader />
       )}
       {/* {isMovieLoading ? (
         !moviesElements.length ? (
