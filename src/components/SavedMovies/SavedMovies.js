@@ -15,6 +15,11 @@ function SavedMovies({
   checkboxStatus,
   emptyCardList,
 }) {
+
+  React.useEffect(() => {
+    onSearchFormSubmitButtonClick();
+  }, []);
+
   return (
     <>
       <Header classNameHeader="Header" classNameLogo="Header__logo" Navigation={NavigationSite} onBurgerMenu={onBurgerMenu} />
