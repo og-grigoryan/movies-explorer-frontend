@@ -30,16 +30,12 @@ function MoviesCardList({
     <section className="MoviesCardList" aria-label="Список фильмов">
       {isMovieLoading ? (
         <Preloader />
-      ) : allMovies.length ? (
-        moviesElements.length ? (
-          <ul className="MoviesCardList__list">
-            {moviesElements.slice(0, maxCountMoviesElements)}
-          </ul>
-        ) : (
-          <p className="MoviesCardList__messageNotFound">«Ничего не найдено»</p>
-        )
+      ) : moviesElements.length ? (
+        <ul className="MoviesCardList__list">
+          {moviesElements.slice(0, maxCountMoviesElements)}
+        </ul>
       ) : (
-        <Preloader />
+        <p className="MoviesCardList__messageNotFound">«Ничего не найдено»</p>
       )}
       {/* {isMovieLoading ? (
         !moviesElements.length ? (
