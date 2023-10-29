@@ -7,6 +7,9 @@ import SearchForm from '../SearchForm/SearchForm.js';
 import Footer from '../Footer/Footer';
 
 function SavedMovies({ onBurgerMenu, allMovies, onSaveButtonClick, onSearchFormSubmitButtonClick, moviesSearchQuery, checkboxStatus }) {
+  React.useEffect(() => {
+    onSearchFormSubmitButtonClick();
+  }, []);
 
   return (
     <>
