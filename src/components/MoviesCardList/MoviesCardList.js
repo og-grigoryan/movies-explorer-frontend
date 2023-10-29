@@ -34,11 +34,21 @@ function MoviesCardList({
         ) : (
           <Preloader />
         )
+      ) : !allMovies.length ? (
+        <Preloader />
       ) : (
         <ul className="MoviesCardList__list">
           {moviesElements.slice(0, maxCountMoviesElements)}
         </ul>
       )}
+      {/* {
+        ((allMovies.length === 0)) && <p className='MoviesCardList__messageNotFound'>«Ничего не найдено»</p>
+      }
+      {
+        isMovieLoading
+          ? <Preloader />
+          : 
+      } */}
     </section>
   );
 }
