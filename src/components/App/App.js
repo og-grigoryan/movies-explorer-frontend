@@ -212,7 +212,7 @@ function App() {
   // SIGNOUT USER
   const handleSignOutButtonClick = () => {
     localStorage.removeItem('jwt');
-    localStorage.removeItem('sortedMovies');
+    /*localStorage.removeItem('sortedMovies');*/
     localStorage.removeItem('moviesSearchQuery');
     localStorage.removeItem('checkboxStatus');
 
@@ -256,7 +256,7 @@ function App() {
     }
 
     setSortedMovies(sortedMoviesArray);
-    localStorage.setItem('sortedMovies', JSON.stringify(sortedMoviesArray));
+    /*localStorage.setItem('sortedMovies', JSON.stringify(sortedMoviesArray));*/
   }
 
   // создаём список отсортированных сохраненных фильмов 

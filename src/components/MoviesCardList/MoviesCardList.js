@@ -29,7 +29,20 @@ function MoviesCardList({
   return (
     <section className="MoviesCardList" aria-label="Список фильмов">
       {isMovieLoading ? (
-        !savedMovies.length ? (
+        <Preloader />
+      ) : allMovies.length ? (
+        moviesElements.length ? (
+          <ul className="MoviesCardList__list">
+            {moviesElements.slice(0, maxCountMoviesElements)}
+          </ul>
+        ) : (
+          <p className="MoviesCardList__messageNotFound">«Ничего не найдено»</p>
+        )
+      ) : (
+        <Preloader />
+      )}
+      {/* {isMovieLoading ? (
+        !moviesElements.length ? (
           <p className="MoviesCardList__messageNotFound">«Ничего не найдено»</p>
         ) : (
           <Preloader />
@@ -40,15 +53,7 @@ function MoviesCardList({
         <ul className="MoviesCardList__list">
           {moviesElements.slice(0, maxCountMoviesElements)}
         </ul>
-      )}
-      {/* {
-        ((allMovies.length === 0)) && <p className='MoviesCardList__messageNotFound'>«Ничего не найдено»</p>
-      }
-      {
-        isMovieLoading
-          ? <Preloader />
-          : 
-      } */}
+      )} */}
     </section>
   );
 }
