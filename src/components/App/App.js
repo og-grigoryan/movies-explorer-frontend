@@ -132,10 +132,10 @@ function App() {
   }
 
   const checkLocalStorage = () => {
-    if (localStorage.getItem('sortedMovies')) {
+    /*if (localStorage.getItem('sortedMovies')) {
       const sortedMoviesLS = JSON.parse(localStorage.getItem("sortedMovies"));
       setSortedMovies(sortedMoviesLS);
-    }
+    }*/
     if (localStorage.getItem('moviesSearchQuery')) {
       const moviesSearchQueryLS = localStorage.getItem("moviesSearchQuery");
       setMoviesSearchQuery(moviesSearchQueryLS);

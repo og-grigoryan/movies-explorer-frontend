@@ -29,7 +29,7 @@ function MoviesCardList({
   return (
     <section className="MoviesCardList" aria-label="Список фильмов">
       {isMovieLoading ? (
-        !allMovies.length ? (
+        !savedMovies.length ? (
           <p className="MoviesCardList__messageNotFound">«Ничего не найдено»</p>
         ) : (
           <Preloader />
