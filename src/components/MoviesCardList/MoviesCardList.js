@@ -15,6 +15,7 @@ function MoviesCardList({
   checkboxStatus,
   isMovieLoading,
 }) {
+  const [countSend, setCountSend] = React.useState(0);
   const moviesElements = allMovies.map((movies) => (
     <MoviesCard
       movies={movies}
@@ -26,6 +27,15 @@ function MoviesCardList({
     />
   ));
 
+  React.useEffect(() => {
+    if (!isMovieLoading) {
+      setCountSend((prev) => {
+        const newCount = prev + 1;
+        return newCount;
+      });
+    }
+  }, [isMovieLoading]);
+
   return (
     <section className="MoviesCardList" aria-label="Список фильмов">
       {isMovieLoading ? (
@@ -34,7 +44,7 @@ function MoviesCardList({
         <ul className="MoviesCardList__list">
           {moviesElements.slice(0, maxCountMoviesElements)}
         </ul>
-      ) : allMovies.length ? (
+      ) : countSend > 1 ? (
         <p className="MoviesCardList__messageNotFound">«Ничего не найдено»</p>
       ) : (
         <Preloader />
