@@ -133,7 +133,7 @@ class MainApi {
 /* MainApi */
 const mainApi = new MainApi({
   //baseUrl: 'https://api.nomoreparties.co/beatfilm-movies',
-  baseUrl: 'https://api.movie.grig.nomoredomainsrocks.ru/',
+  baseUrl: 'https://api.movie.grig.nomoredomainsrocks.ru',
   // baseUrl: 'https://api.movie.grig.nomoredomainsrocks.ru',  //'http://localhost:3000',
   beatFilmUrl: 'https://api.nomoreparties.co/',
 
