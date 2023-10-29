@@ -6,20 +6,19 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
 import SearchForm from '../SearchForm/SearchForm.js';
 import Footer from '../Footer/Footer';
 
-function SavedMovies({ onBurgerMenu, allMovies, onSaveButtonClick, onSearchFormSubmitButtonClick, moviesSearchQuery, checkboxStatus }) {
-  React.useEffect(() => {
-    onSearchFormSubmitButtonClick();
-  }, []);
-
+function SavedMovies({
+  onBurgerMenu,
+  allMovies,
+  onSaveButtonClick,
+  onSearchFormSubmitButtonClick,
+  moviesSearchQuery,
+  checkboxStatus,
+  emptyCardList,
+}) {
   return (
     <>
-      <Header
-        classNameHeader="Header"
-        classNameLogo="Header__logo"
-        Navigation={NavigationSite}
-        onBurgerMenu={onBurgerMenu}
-      />
-      <main className='content'>
+      <Header classNameHeader="Header" classNameLogo="Header__logo" Navigation={NavigationSite} onBurgerMenu={onBurgerMenu} />
+      <main className="content">
         <section className="SavedMovies">
           <SearchForm
             onSearchFormSubmitButtonClick={onSearchFormSubmitButtonClick}
@@ -31,12 +30,13 @@ function SavedMovies({ onBurgerMenu, allMovies, onSaveButtonClick, onSearchFormS
             onSaveButtonClick={onSaveButtonClick}
             moviesSearchQuery={moviesSearchQuery}
             checkboxStatus={checkboxStatus}
+            emptyCardList={emptyCardList}
           />
         </section>
       </main>
       <Footer />
     </>
-  )
+  );
 }
 
 export default SavedMovies;

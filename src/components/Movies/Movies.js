@@ -7,17 +7,23 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
 import More from '../More/More.js';
 import Footer from '../Footer/Footer';
 
-function Movies({ onBurgerMenu, allMovies, savedMovies, moviesSearchQuery, checkboxStatus, maxCountMoviesElements, onSearchFormSubmitButtonClick, onMoreButtonClick, onSaveButtonClick, isMovieLoading}) {
-
-   return (
+function Movies({
+  onBurgerMenu,
+  allMovies,
+  savedMovies,
+  moviesSearchQuery,
+  checkboxStatus,
+  maxCountMoviesElements,
+  onSearchFormSubmitButtonClick,
+  onMoreButtonClick,
+  onSaveButtonClick,
+  isMovieLoading,
+  emptyCardList,
+}) {
+  return (
     <>
-      <Header
-        classNameHeader="Header"
-        classNameLogo="Header__logo"
-        Navigation={NavigationSite}
-        onBurgerMenu={onBurgerMenu}
-      />
-      <main className='content'>
+      <Header classNameHeader="Header" classNameLogo="Header__logo" Navigation={NavigationSite} onBurgerMenu={onBurgerMenu} />
+      <main className="content">
         <section className="Movies">
           <SearchForm
             onSearchFormSubmitButtonClick={onSearchFormSubmitButtonClick}
@@ -32,15 +38,14 @@ function Movies({ onBurgerMenu, allMovies, savedMovies, moviesSearchQuery, check
             onSaveButtonClick={onSaveButtonClick}
             moviesSearchQuery={moviesSearchQuery}
             isMovieLoading={isMovieLoading}
+            emptyCardList={emptyCardList}
           />
-          {
-            (allMovies.length > maxCountMoviesElements) && <More onMoreButtonClick={onMoreButtonClick} />
-          }
+          {allMovies.length > maxCountMoviesElements && <More onMoreButtonClick={onMoreButtonClick} />}
         </section>
       </main>
       <Footer />
     </>
-  )
+  );
 }
 
 export default Movies;

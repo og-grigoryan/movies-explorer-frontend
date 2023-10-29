@@ -1,8 +1,8 @@
 import React from 'react';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 
-import moviesApi from '../../utils/MoviesApi.js'
-import mainApi from '../../utils/MainApi.js'
+import moviesApi from '../../utils/MoviesApi.js';
+import mainApi from '../../utils/MainApi.js';
 
 import Main from '../Main/Main.js';
 import Movies from '../Movies/Movies.js';
@@ -12,11 +12,11 @@ import Register from '../Register/Register.js';
 import Login from '../Login/Login.js';
 import Page404 from '../Page404/Page404.js';
 import BurgerMenuPopUp from '../BurgerMenuPopUp/BurgerMenuPopUp.js';
-import SuccessUpdateProfilePopUp from '../SuccessUpdateProfilePopUp/SuccessUpdateProfilePopUp.js'
-
+import SuccessUpdateProfilePopUp from '../SuccessUpdateProfilePopUp/SuccessUpdateProfilePopUp.js';
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js'
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js';
+import { useEffect } from 'react';
 
 function App() {
   const navigate = useNavigate();
@@ -26,12 +26,15 @@ function App() {
   const [isBurgerMenuPopupOpen, setIsBurgerMenuPopupOpen] = React.useState(false);
   const [isSuccessPopupOpen, setIsSuccessPopupOpen] = React.useState(false);
 
-  const [allMovies, setAllMovies] = React.useState([]);
-  const [sortedMovies, setSortedMovies] = React.useState([]);
-  const [savedMovies, setSavedMovies] = React.useState([]);
-  const [savedSortedMovies, setSavedSortedMovies] = React.useState([]);
-  const [moviesSearchQuery, setMoviesSearchQuery] = React.useState('');
-  const [checkboxStatus, setCheckboxStatus] = React.useState(false);
+  const [allMovies, setAllMovies] = React.useState(JSON.parse(localStorage.getItem('allMovies')) || []);
+  const [sortedMovies, setSortedMovies] = React.useState(JSON.parse(localStorage.getItem('sortedMovies')) || []);
+  const [savedMovies, setSavedMovies] = React.useState(JSON.parse(localStorage.getItem('savedMovies')) || []);
+  const [savedSortedMovies, setSavedSortedMovies] = React.useState(JSON.parse(localStorage.getItem('savedSortedMovies')) || []);
+  const [moviesSearchQuery, setMoviesSearchQuery] = React.useState(localStorage.getItem('moviesSearchQuery') || '');
+  const [checkboxStatus, setCheckboxStatus] = React.useState(JSON.parse(localStorage.getItem('checkboxStatus')) || false);
+
+  const [emptyMoviesList, setEmptyMoviesList] = React.useState('');
+  const [emptySavedList, setEmptySavedList] = React.useState('');
 
   const [moviesSearchQueryForSavedMovies, setMoviesSearchQueryForSavedMovies] = React.useState('');
   const [checkboxStatusForSavedMovies, setCheckboxStatusForSavedMovies] = React.useState(false);
@@ -64,7 +67,6 @@ function App() {
           setUserData(userData);
           setSavedMovies(savedMovies);
           setSavedSortedMovies(savedMovies);
-          checkLocalStorage();
 
           // проверяем заходил ли пользователь по URL, если да, перенаправляем его по указанному пути.
           if (location.state?.from) {
@@ -73,7 +75,7 @@ function App() {
         })
         .catch((err) => {
           console.log(err);
-        })
+        });
     }
   }, [loggedIn]);
 
@@ -109,18 +111,19 @@ function App() {
           setMaxCountMoviesElementsUpdate(maxCountMoviesElementsUpdate + (2 - (maxCountMoviesElementsUpdate % 2)));
         }
       }
-    }, 1000)
+    }, 1000);
   });
 
   // проверяем есть ли данные пользовителя в локальном хранилище
   const checkToken = () => {
     if (localStorage.getItem('jwt')) {
       const token = `Bearer ${localStorage.getItem('jwt')}`;
-      mainApi.getUser(token)
+      mainApi
+        .getUser(token)
         .then((res) => {
           if (res) {
             setLoggedIn(true);
-            //setUserData(res);
+            setUserData(res);
             // checkLocalStorage();
             //navigate("/movies", { replace: true });
           }
@@ -129,54 +132,32 @@ function App() {
           console.log(err);
         });
     }
-  }
-
-  const checkLocalStorage = () => {
-    /*if (localStorage.getItem('sortedMovies')) {
-      const sortedMoviesLS = JSON.parse(localStorage.getItem("sortedMovies"));
-      setSortedMovies(sortedMoviesLS);
-    }*/
-    if (localStorage.getItem('moviesSearchQuery')) {
-      const moviesSearchQueryLS = localStorage.getItem("moviesSearchQuery");
-      setMoviesSearchQuery(moviesSearchQueryLS);
-    }
-    if (localStorage.getItem('checkboxStatus')) {
-      const checkboxStatusLS = (localStorage.getItem("checkboxStatus") === "true");
-      setCheckboxStatus(checkboxStatusLS);
-    }
-  }
+  };
 
   // REGISTER USER
   const handleRegisrtationUser = (registrationData) => {
-    mainApi.registrationUser(registrationData)
-      .then((res) => {
-        // console.log(res);
-        // setUserData(registrationData);
-        mainApi.loginUser(registrationData)
-          .then((res) => {
-            localStorage.setItem('jwt', res.token);
-            setLoggedIn(true);
-            setUserRegError('');
-            navigate("/movies", { replace: true });
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+    mainApi
+      .registrationUser(registrationData)
+      .then(() => {
+        handleLoginUser(registrationData);
+        setUserRegError('');
       })
       .catch((err) => {
         console.log(err);
         setUserRegError(err);
       });
-  }
+  };
 
   // LOGIN USER
   const handleLoginUser = (loginData) => {
-    mainApi.loginUser(loginData)
+    mainApi
+      .loginUser(loginData)
       .then((res) => {
         localStorage.setItem('jwt', res.token);
+        setUserData(res.user);
         setLoggedIn(true);
         setUserLoginError('');
-        navigate("/movies", { replace: true });
+        navigate('/movies', { replace: true });
 
         // localStorage.setItem('jwt', res.token)
         // // получаем данные пользователя из БД
@@ -190,15 +171,16 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
-        setUserLoginError(err)
+        setUserLoginError(err);
       });
-  }
+  };
 
   // UPDATE USER
   const handleUpdateUser = (newUserData) => {
     const token = `Bearer ${localStorage.getItem('jwt')}`;
     // console.log(newUserData);
-    mainApi.updateUser(newUserData, token)
+    mainApi
+      .updateUser(newUserData, token)
       .then((res) => {
         setUserData(newUserData);
         setUserProfileError('');
@@ -207,12 +189,12 @@ function App() {
       .catch((err) => {
         setUserProfileError(err);
       });
-  }
+  };
 
   // SIGNOUT USER
   const handleSignOutButtonClick = () => {
     localStorage.removeItem('jwt');
-    /*localStorage.removeItem('sortedMovies');*/
+    localStorage.removeItem('sortedMovies');
     localStorage.removeItem('moviesSearchQuery');
     localStorage.removeItem('checkboxStatus');
 
@@ -227,7 +209,7 @@ function App() {
     setAllMovies(emptyArray);
     setSavedMovies(emptyArray);
     setSortedMovies(emptyArray);
-  }
+  };
 
   // MOVIES
   // создаём список отсортированных фильмов и записываем его в localStorage
@@ -238,8 +220,8 @@ function App() {
     if (checkboxStatus) {
       allMovies.forEach((movie) => {
         if (
-          (movie.nameRU.toLowerCase().includes(searchFormMovie.toLowerCase()) || movie.year.includes(searchFormMovie))
-          && (movie.duration < 40)
+          (movie.nameRU.toLowerCase().includes(searchFormMovie.toLowerCase()) || movie.year.includes(searchFormMovie)) &&
+          movie.duration < 40
         ) {
           sortedMoviesArray.push(movie);
         }
@@ -247,19 +229,23 @@ function App() {
     } else {
       // критерии отбора по ключевому слову в названии и году выпуска фильма
       allMovies.forEach((movie) => {
-        if (
-          movie.nameRU.toLowerCase().includes(searchFormMovie.toLowerCase()) || movie.year.includes(searchFormMovie)
-        ) {
+        if (movie.nameRU.toLowerCase().includes(searchFormMovie.toLowerCase()) || movie.year.includes(searchFormMovie)) {
           sortedMoviesArray.push(movie);
         }
       });
     }
 
-    setSortedMovies(sortedMoviesArray);
-    /*localStorage.setItem('sortedMovies', JSON.stringify(sortedMoviesArray));*/
-  }
+    if (sortedMoviesArray.length === 0) {
+      setEmptyMoviesList('Ничего не найдено');
+    } else {
+      setEmptyMoviesList('');
+    }
 
-  // создаём список отсортированных сохраненных фильмов 
+    setSortedMovies(sortedMoviesArray);
+    localStorage.setItem('sortedMovies', JSON.stringify(sortedMoviesArray));
+  };
+
+  // создаём список отсортированных сохраненных фильмов
   const makeSortedSavedMoviesArray = (savedMovies, searchFormMovie, checkboxStatus) => {
     const sortedMoviesArray = [];
 
@@ -272,8 +258,8 @@ function App() {
     if (checkboxStatus) {
       savedMovies.forEach((movie) => {
         if (
-          (movie.nameRU.toLowerCase().includes(searchFormMovie.toLowerCase()) || movie.year.includes(searchFormMovie))
-          && (movie.duration < 40)
+          (movie.nameRU.toLowerCase().includes(searchFormMovie.toLowerCase()) || movie.year.includes(searchFormMovie)) &&
+          movie.duration < 40
         ) {
           sortedMoviesArray.push(movie);
         }
@@ -281,24 +267,29 @@ function App() {
     } else {
       // критерии отбора по ключевому слову в названии и году выпуска фильма
       savedMovies.forEach((movie) => {
-        if (
-          movie.nameRU.toLowerCase().includes(searchFormMovie.toLowerCase()) || movie.year.includes(searchFormMovie)
-        ) {
+        if (movie.nameRU.toLowerCase().includes(searchFormMovie.toLowerCase()) || movie.year.includes(searchFormMovie)) {
           sortedMoviesArray.push(movie);
         }
       });
     }
+
+    if (sortedMoviesArray.length === 0) {
+      setEmptySavedList('Ничего не найдено');
+    } else {
+      setEmptySavedList('');
+    }
+
     setSavedSortedMovies(sortedMoviesArray);
-  }
+  };
 
   const handleBurgerMenuClick = () => {
     setIsBurgerMenuPopupOpen(true);
-  }
+  };
 
   const closePopups = () => {
     setIsBurgerMenuPopupOpen(false);
     setIsSuccessPopupOpen(false);
-  }
+  };
 
   const handleMoreComponentButtonClick = () => {
     let screenWidth = window.screen.width;
@@ -312,7 +303,7 @@ function App() {
     if (screenWidth < 767) {
       setMaxCountMoviesElementsUpdate(maxCountMoviesElementsUpdate + 2);
     }
-  }
+  };
 
   // SAVED MOVIES
   const handleMoviesCardSaveButtonClick = (movies, isSaved) => {
@@ -320,35 +311,41 @@ function App() {
     // проверяем есть ли значок лайк на карточке с фильмом
     if (!isSaved) {
       // записываем сохраненный фильм в базу данных
-      mainApi.saveMovie(movies, token)
+      mainApi
+        .saveMovie(movies, token)
         .then((res) => {
           setSavedMovies([movies, ...savedMovies]);
           setSavedSortedMovies([movies, ...savedMovies]);
+          localStorage.setItem('savedMovies', JSON.stringify([movies, ...savedMovies]));
+          localStorage.setItem('savedSortedMovies', JSON.stringify([movies, ...savedMovies]));
         })
         .catch((err) => {
           console.log(err);
         });
     } else {
-      mainApi.deleteMovie(movies.id, token)
+      mainApi
+        .deleteMovie(movies.id, token)
         .then((res) => {
           // console.log(res);
-          const updateSavedMovies = savedMovies.filter(c => c.nameRU !== movies.nameRU);
+          const updateSavedMovies = savedMovies.filter((c) => c.nameRU !== movies.nameRU);
           setSavedMovies(updateSavedMovies);
           setSavedSortedMovies(updateSavedMovies);
+          localStorage.setItem('savedMovies', JSON.stringify(updateSavedMovies));
+          localStorage.setItem('savedSortedMovies', JSON.stringify(updateSavedMovies));
         })
 
         .catch((err) => {
           console.log(err);
         });
     }
-  }
+  };
 
   const handleMoviesCardDeleteButtonClick = (movies, isSaved, moviesSearchQuery, checkboxStatus) => {
     const token = `Bearer ${localStorage.getItem('jwt')}`;
 
-   // console.log("movies_ID", movies);
+    // console.log("movies_ID", movies);
 
-    let moviesToDelete = "";
+    let moviesToDelete = '';
 
     if (movies.movieId) {
       moviesToDelete = movies.movieId;
@@ -356,12 +353,13 @@ function App() {
       moviesToDelete = movies.id;
     }
 
-    mainApi.deleteMovie(moviesToDelete, token)
+    mainApi
+      .deleteMovie(moviesToDelete, token)
       .then((res) => {
         // console.log(res);
       })
       .then(() => {
-        const updateSavedMovies = savedMovies.filter(c => c.nameRU !== movies.nameRU);
+        const updateSavedMovies = savedMovies.filter((c) => c.nameRU !== movies.nameRU);
         setSavedMovies(updateSavedMovies);
         // setSavedSortedMovies(updateSavedMovies);
         makeSortedSavedMoviesArray(updateSavedMovies, moviesSearchQueryForSavedMovies, checkboxStatusForSavedMovies);
@@ -369,8 +367,7 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-
-  }
+  };
 
   //SEARCH FORM SUBMIT
   const handleSearchFormSubmitButtonClick = (searchFormMovie, checkboxStatus) => {
@@ -388,9 +385,11 @@ function App() {
       setIsMovieLoading(false);
     } else {
       // получаем даные и записываем их в localStorage
-      moviesApi.getMovies()
+      moviesApi
+        .getMovies()
         .then((movies) => {
           setAllMovies(movies);
+          localStorage.setItem('allMovies', JSON.stringify(movies));
 
           makeSortedMoviesArray(movies, searchFormMovie, checkboxStatus);
 
@@ -405,30 +404,25 @@ function App() {
         })
         .finally(() => {
           setIsMovieLoading(false);
-        })
-      }
+        });
     }
+  };
 
-    //SEARCH FORM SUBMIT SAVED MOVIE
-    const handleSearchFormSavedMoviesSubmitButtonClick = (searchFormMovie, checkboxStatus) => {
-      setCheckboxStatusForSavedMovies(checkboxStatus);
-      setMoviesSearchQueryForSavedMovies(searchFormMovie);
-      makeSortedSavedMoviesArray(savedMovies, searchFormMovie, checkboxStatus);
-    }
+  //SEARCH FORM SUBMIT SAVED MOVIE
+  const handleSearchFormSavedMoviesSubmitButtonClick = (searchFormMovie, checkboxStatus) => {
+    setCheckboxStatusForSavedMovies(checkboxStatus);
+    setMoviesSearchQueryForSavedMovies(searchFormMovie);
+    makeSortedSavedMoviesArray(savedMovies, searchFormMovie, checkboxStatus);
+  };
 
-    return (
-      <CurrentUserContext.Provider value={userData}>
-        <Routes>
-          <Route
-            path="/"
-            element={<Main
-              loggedIn={loggedIn}
-              onBurgerMenu={handleBurgerMenuClick}
-            />}
-          />
-          <Route
-            path="/movies"
-            element={<ProtectedRoute
+  return (
+    <CurrentUserContext.Provider value={userData}>
+      <Routes>
+        <Route path="/" element={<Main loggedIn={loggedIn} onBurgerMenu={handleBurgerMenuClick} />} />
+        <Route
+          path="/movies"
+          element={
+            <ProtectedRoute
               Component={Movies}
               loggedIn={loggedIn}
               onBurgerMenu={handleBurgerMenuClick}
@@ -441,11 +435,15 @@ function App() {
               onSearchFormSubmitButtonClick={handleSearchFormSubmitButtonClick}
               onMoreButtonClick={handleMoreComponentButtonClick}
               onSaveButtonClick={handleMoviesCardSaveButtonClick}
-            />}
-          />
-          <Route
-            path="/saved-movies"
-            element={<ProtectedRoute
+              emptyCardList={emptyMoviesList}
+              //emptyMoviesList emptySavedList
+            />
+          }
+        />
+        <Route
+          path="/saved-movies"
+          element={
+            <ProtectedRoute
               Component={SavedMovies}
               loggedIn={loggedIn}
               onBurgerMenu={handleBurgerMenuClick}
@@ -454,45 +452,36 @@ function App() {
               onSearchFormSubmitButtonClick={handleSearchFormSavedMoviesSubmitButtonClick}
               moviesSearchQuery={moviesSearchQueryForSavedMovies}
               checkboxStatus={checkboxStatusForSavedMovies}
-            />}
-          />
-          <Route
-            path="/profile"
-            element={<ProtectedRoute
+              emptyCardList={emptySavedList}
+            />
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute
               Component={Profile}
               loggedIn={loggedIn}
               onUpdateUser={handleUpdateUser}
               onBurgerMenu={handleBurgerMenuClick}
               onSignOutButtonClick={handleSignOutButtonClick}
               userProfileError={userProfileError}
-
-            />}
-          />
-          <Route
-            path="/signup"
-            element={<Register onRegistrationUser={handleRegisrtationUser} userRegError={userRegError} loggedIn={loggedIn} />}
-          />
-          <Route
-            path="/signin"
-            element={<Login onLoginUser={handleLoginUser} userLoginError={userLoginError} loggedIn={loggedIn} />}
-          />
-          <Route
-            path="*"
-            element={<Page404 />}
-          />
-        </Routes>
-
-        <BurgerMenuPopUp
-          isOpen={isBurgerMenuPopupOpen}
-          onClose={closePopups}
+            />
+          }
         />
-
-        <SuccessUpdateProfilePopUp
-          isOpen={isSuccessPopupOpen}
-          onClose={closePopups}
+        <Route
+          path="/signup"
+          element={<Register onRegistrationUser={handleRegisrtationUser} userRegError={userRegError} loggedIn={loggedIn} />}
         />
-      </CurrentUserContext.Provider>
-    );
-  }
+        <Route path="/signin" element={<Login onLoginUser={handleLoginUser} userLoginError={userLoginError} loggedIn={loggedIn} />} />
+        <Route path="*" element={<Page404 />} />
+      </Routes>
 
-  export default App;
+      <BurgerMenuPopUp isOpen={isBurgerMenuPopupOpen} onClose={closePopups} />
+
+      <SuccessUpdateProfilePopUp isOpen={isSuccessPopupOpen} onClose={closePopups} />
+    </CurrentUserContext.Provider>
+  );
+}
+
+export default App;

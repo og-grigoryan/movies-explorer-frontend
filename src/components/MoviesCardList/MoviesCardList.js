@@ -1,10 +1,10 @@
-import React from "react";
-import MoviesCard from "../MoviesCard/MoviesCard.js";
-import Preloader from "../Preloader/Preloader.js";
+import React from 'react';
+import MoviesCard from '../MoviesCard/MoviesCard.js';
+import Preloader from '../Preloader/Preloader.js';
 
-import "./MoviesCardList.css";
-import "./MoviesCardList__list.css";
-import "./MoviesCardList__messageNotFound.css";
+import './MoviesCardList.css';
+import './MoviesCardList__list.css';
+import './MoviesCardList__messageNotFound.css';
 
 function MoviesCardList({
   allMovies,
@@ -14,8 +14,8 @@ function MoviesCardList({
   moviesSearchQuery,
   checkboxStatus,
   isMovieLoading,
+  emptyCardList,
 }) {
-  const [countSend, setCountSend] = React.useState(0);
   const moviesElements = allMovies.map((movies) => (
     <MoviesCard
       movies={movies}
@@ -27,41 +27,15 @@ function MoviesCardList({
     />
   ));
 
-  React.useEffect(() => {
-    if (!isMovieLoading) {
-      setCountSend((prev) => {
-        const newCount = prev + 1;
-        return newCount;
-      });
-    }
-  }, [isMovieLoading]);
-
   return (
     <section className="MoviesCardList" aria-label="Список фильмов">
       {isMovieLoading ? (
         <Preloader />
-      ) : moviesElements.length ? (
-        <ul className="MoviesCardList__list">
-          {moviesElements.slice(0, maxCountMoviesElements)}
-        </ul>
-      ) : countSend > 1 ? (
-        <p className="MoviesCardList__messageNotFound">«Ничего не найдено»</p>
+      ) : emptyCardList ? (
+        <p className="MoviesCardList__messageNotFound">{emptyCardList}</p>
       ) : (
-        <Preloader />
+        <ul className="MoviesCardList__list">{moviesElements.slice(0, maxCountMoviesElements)}</ul>
       )}
-      {/* {isMovieLoading ? (
-        !moviesElements.length ? (
-          <p className="MoviesCardList__messageNotFound">«Ничего не найдено»</p>
-        ) : (
-          <Preloader />
-        )
-      ) : !allMovies.length ? (
-        <Preloader />
-      ) : (
-        <ul className="MoviesCardList__list">
-          {moviesElements.slice(0, maxCountMoviesElements)}
-        </ul>
-      )} */}
     </section>
   );
 }
