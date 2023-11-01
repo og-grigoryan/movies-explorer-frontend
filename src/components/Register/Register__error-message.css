@@ -1,0 +1,15 @@
+.Register__error-message {
+    margin: 0;
+    color: rgba(255, 0, 76, 1);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.21;
+    text-align: center;
+  }
+  
+  @media screen and (max-width: 680px) {
+    .Register__error-message {
+      font-size: 12px;
+      line-height: 1.25;
+    }
+  }

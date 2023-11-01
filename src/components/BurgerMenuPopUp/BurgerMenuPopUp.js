@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 
 import './BurgerMenuPopUp.css';
 import './BurgerMenuPopUp_is-opened.css';
@@ -15,8 +15,13 @@ function BurgerMenuPopUp({ isOpen, onClose }) {
   const location = useLocation();
   const navigate = useNavigate();
 
+  let isPageMainOpen = false;
   let isPageMoviesOpen = false;
   let isPageSavedMoviesOpen = false;
+
+  if (location.pathname === "/") {
+    isPageMainOpen = true;
+  }
 
   if (location.pathname === "/movies") {
     isPageMoviesOpen = true;
@@ -33,20 +38,32 @@ function BurgerMenuPopUp({ isOpen, onClose }) {
   return (
     <section className={`BurgerMenuPopUp ${isOpen ? "BurgerMenuPopUp_is-opened" : ""}`} aria-label="Меню">
       <nav className="BurgerMenuPopUp__menu">
-      <button type="button" className="BurgerMenuPopUp__button-close" onClick={onClose}></button>
+        <button type="button" className="BurgerMenuPopUp__button-close" onClick={onClose}></button>
         <ul className="BurgerMenuPopUp__list">
           <li className="BurgerMenuPopUp__list-item">
-            <a className="BurgerMenuPopUp__link" href="/">Главная</a>
+            <Link
+              className={`BurgerMenuPopUp__link ${isPageMainOpen ? "BurgerMenuPopUp__link_active" : ""}`}
+              to="/"
+              onClick={onClose}
+            >Главная</Link>
           </li>
           <li className="BurgerMenuPopUp__list-item">
-            <a className={`BurgerMenuPopUp__link ${isPageMoviesOpen ? "BurgerMenuPopUp__link_active" : ""}`} href="/movies">Фильмы</a>
+            <Link
+              className={`BurgerMenuPopUp__link ${isPageMoviesOpen ? "BurgerMenuPopUp__link_active" : ""}`}
+              to="/movies"
+              onClick={onClose}
+            >Фильмы</Link>
           </li>
           <li className="BurgerMenuPopUp__list-item">
-            <a className={`BurgerMenuPopUp__link ${isPageSavedMoviesOpen ? "BurgerMenuPopUp__link_active" : ""}`} href="/saved-movies">Сохранённые фильмы</a>
+            <Link
+              className={`BurgerMenuPopUp__link ${isPageSavedMoviesOpen ? "BurgerMenuPopUp__link_active" : ""}`}
+              to="/saved-movies"
+              onClick={onClose}
+            >Сохранённые фильмы</Link>
           </li>
         </ul>
         <button type="button" className="BurgerMenuPopUp__account-button" onClick={onClickProfileButton}>Аккаунт</button>
-       </nav>
+      </nav>
     </section>
   )
 }
